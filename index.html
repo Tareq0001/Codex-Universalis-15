@@ -29,61 +29,69 @@
       </div>
     </header>
 
-    <!-- 2. Master Illuminated Folio Card (The Core Page Area) -->
-    <main class="illuminated-folio-spread">
-
-      <!-- Folio Header -->
-      <div class="folio-header">
-        <div>
-          <div class="folio-meta-badge" id="folio-category">مقدمة الأرشيف • Prolégomènes</div>
-          <h1 class="folio-title" id="folio-title">الغلاف الملكي وديباجة مخطوطة الكون (Codex Universalis)</h1>
-          <div class="folio-origin-date" id="folio-date-origin">من فجر التاريخ إلى عصر التنوير • خزائن باريس ولندن وقرطبة</div>
-        </div>
-
-        <div style="text-align: left;">
-          <div class="folio-roman-badge" id="folio-roman-num">Folio I</div>
-          <div style="font-family: var(--font-ruqaa); font-size: 1.1rem; color: var(--gold-antique);" id="folio-page-num">
-            الصفحة 1 من 15
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile Swipe Hint -->
-      <div class="mobile-swipe-hint">
-        👈 اسحب الشاشة يميناً أو يساراً للتنقل السلس بين الصفحات 👉
-      </div>
-
-      <!-- Folio Content Grid -->
-      <div class="folio-content-grid">
+    <!-- 2. Master Illuminated Folio Card (The Core Page Area with 3D Page Curl Physics) -->
+    <div class="codex-stage-3d">
+      <main class="illuminated-folio-spread" id="illuminated-folio-spread">
         
-        <!-- Left: Essay & Classical Quotations -->
-        <article class="folio-body-area" id="folio-body-area">
-          <div class="manuscript-loupe" id="manuscript-loupe"></div>
+        <!-- Realistic 3D Crease & Lighting Overlay -->
+        <div class="folio-crease-shadow" id="folio-crease-shadow"></div>
+        
+        <!-- Interactive Tactile Corner Peel for Page Turning -->
+        <div class="page-corner-peel" id="corner-peel-btn" title="انقر لقلب الصفحة (Turn Page)"></div>
 
-          <!-- Quotations Box -->
-          <div class="folio-quote-block">
-            <div id="folio-arabic-quote">« الحكمة ضالة المؤمن، أنى وجدها فهو أحق بها. »</div>
-            <div class="folio-latin-quote" id="folio-latin-quote">« Sapientia aedificavit sibi domum. »</div>
+        <!-- Folio Header -->
+        <div class="folio-header">
+          <div>
+            <div class="folio-meta-badge" id="folio-category">مقدمة الأرشيف • Prolégomènes</div>
+            <h1 class="folio-title" id="folio-title">الغلاف الملكي وديباجة مخطوطة الكون (Codex Universalis)</h1>
+            <div class="folio-origin-date" id="folio-date-origin">من فجر التاريخ إلى عصر التنوير • خزائن باريس ولندن وقرطبة</div>
           </div>
 
-          <!-- Main Historical & Technical Essay -->
-          <div class="folio-essay-text" id="folio-essay">
-            <!-- Populated dynamically via JS -->
+          <div style="text-align: left;">
+            <div class="folio-roman-badge" id="folio-roman-num">Folio I</div>
+            <div style="font-family: var(--font-ruqaa); font-size: 1.1rem; color: var(--gold-antique);" id="folio-page-num">
+              الصفحة 1 من 15
+            </div>
           </div>
+        </div>
 
-          <div class="folio-tags-bar" id="folio-tags">
-            <!-- Tags rendered via JS -->
-          </div>
-        </article>
+        <!-- Mobile Swipe Hint -->
+        <div class="mobile-swipe-hint">
+          👈 اسحب الشاشة يميناً أو يساراً للتنقل السلس بين الصفحات 👉
+        </div>
 
-        <!-- Right: Interactive Mechanical Simulator -->
-        <aside class="mechanic-display-container" id="mechanic-display-container">
-          <!-- Interactive Widget rendered via JS -->
-        </aside>
+        <!-- Folio Content Grid -->
+        <div class="folio-content-grid">
+          
+          <!-- Left: Essay & Classical Quotations -->
+          <article class="folio-body-area" id="folio-body-area">
+            <div class="manuscript-loupe" id="manuscript-loupe"></div>
 
-      </div>
+            <!-- Quotations Box -->
+            <div class="folio-quote-block">
+              <div id="folio-arabic-quote">« الحكمة ضالة المؤمن، أنى وجدها فهو أحق بها. »</div>
+              <div class="folio-latin-quote" id="folio-latin-quote">« Sapientia aedificavit sibi domum. »</div>
+            </div>
 
-    </main>
+            <!-- Main Historical & Technical Essay -->
+            <div class="folio-essay-text" id="folio-essay">
+              <!-- Populated dynamically via JS -->
+            </div>
+
+            <div class="folio-tags-bar" id="folio-tags">
+              <!-- Tags rendered via JS -->
+            </div>
+          </article>
+
+          <!-- Right: Interactive Mechanical Simulator -->
+          <aside class="mechanic-display-container" id="mechanic-display-container">
+            <!-- Interactive Widget rendered via JS -->
+          </aside>
+
+        </div>
+
+      </main>
+    </div>
 
     <!-- 3. Master Pagination Bar -->
     <nav class="codex-pagination-bar">

@@ -8,6 +8,7 @@ class CodexEngine {
   constructor() {
     this.currentPage = 1;
     this.totalPages = 15;
+    this.isFlipping = false;
     this.init();
   }
 
@@ -22,21 +23,55 @@ class CodexEngine {
 
   goToPage(pageNum) {
     if (pageNum < 1 || pageNum > this.totalPages) return;
-    this.currentPage = pageNum;
-    this.renderCurrentFolio();
+    if (this.isFlipping || pageNum === this.currentPage) return;
+
+    this.isFlipping = true;
+    const isForward = pageNum > this.currentPage;
+    const spread = document.getElementById('illuminated-folio-spread');
+
+    if (!spread) {
+      this.currentPage = pageNum;
+      this.renderCurrentFolio();
+      if (window.CodexAudio) window.CodexAudio.playPageTurn();
+      this.isFlipping = false;
+      return;
+    }
+
+    const exitClass = isForward ? 'flipping-forward-exit' : 'flipping-backward-exit';
+    const enterClass = isForward ? 'flipping-forward-enter' : 'flipping-backward-enter';
+
+    // Play tactile physical sound immediately at initiation of page curl
     if (window.CodexAudio) {
       window.CodexAudio.playPageTurn();
     }
+
+    // Phase 1: Fold and curl existing page towards the spine
+    spread.classList.add(exitClass);
+
+    // Phase 2: At mid-turn (when page is turned away), swap DOM content and trigger unfold
+    setTimeout(() => {
+      this.currentPage = pageNum;
+      this.renderCurrentFolio();
+
+      spread.classList.remove(exitClass);
+      spread.classList.add(enterClass);
+
+      // Phase 3: Complete entrance curve and settle down
+      setTimeout(() => {
+        spread.classList.remove(enterClass);
+        this.isFlipping = false;
+      }, 550);
+    }, 400);
   }
 
   nextPage() {
-    if (this.currentPage < this.totalPages) {
+    if (!this.isFlipping && this.currentPage < this.totalPages) {
       this.goToPage(this.currentPage + 1);
     }
   }
 
   prevPage() {
-    if (this.currentPage > 1) {
+    if (!this.isFlipping && this.currentPage > 1) {
       this.goToPage(this.currentPage - 1);
     }
   }
@@ -91,9 +126,16 @@ class CodexEngine {
   initNavControls() {
     const btnPrev = document.getElementById('btn-prev-page');
     const btnNext = document.getElementById('btn-next-page');
+    const cornerBtn = document.getElementById('corner-peel-btn');
 
     if (btnPrev) btnPrev.addEventListener('click', () => this.prevPage());
     if (btnNext) btnNext.addEventListener('click', () => this.nextPage());
+    if (cornerBtn) {
+      cornerBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.nextPage();
+      });
+    }
   }
 
   initKeyboardNav() {
