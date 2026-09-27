@@ -426,13 +426,41 @@ body {
   font-size: 0.95rem;
 }
 
-/* Responsive */
+/* Touch Device & Loupe Handling */
+@media (hover: none) or (pointer: coarse) {
+  .manuscript-loupe {
+    display: none !important;
+  }
+}
+
+/* Fluid Canvas Mechanics Scaling */
+#mechanic-canvas,
+.canvas-widget-wrapper canvas {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+}
+
+.mobile-swipe-hint {
+  display: none;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--gold-primary);
+  margin-bottom: 12px;
+  background: rgba(200, 155, 60, 0.1);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+/* Tablet & Mobile Breakpoints */
 @media (max-width: 992px) {
   .folio-content-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
   .illuminated-folio-spread {
-    padding: 24px;
+    padding: 28px 20px;
   }
   .folio-title {
     font-size: 1.8rem;
@@ -441,3 +469,130 @@ body {
     width: 320px;
   }
 }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 1.7;
+    padding-bottom: 80px; /* Space for fixed bottom pagination */
+  }
+
+  .mobile-swipe-hint {
+    display: block;
+  }
+
+  .codex-palace-container {
+    padding: 10px 10px 90px;
+  }
+
+  .codex-top-bar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 14px;
+    text-align: center;
+  }
+
+  .codex-brand {
+    font-size: 1.1rem;
+    justify-content: center;
+  }
+
+  .codex-top-actions {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .btn-brass-royal, 
+  .btn-brass-subtle {
+    padding: 7px 12px;
+    font-size: 0.85rem;
+  }
+
+  .illuminated-folio-spread {
+    border-width: 5px;
+    padding: 18px 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  .illuminated-folio-spread::before,
+  .illuminated-folio-spread::after {
+    font-size: 1.2rem;
+  }
+
+  .folio-header {
+    flex-direction: column-reverse;
+    gap: 10px;
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+  }
+
+  .folio-title {
+    font-size: 1.45rem;
+    line-height: 1.35;
+  }
+
+  .folio-roman-badge {
+    font-size: 1.5rem;
+  }
+
+  .folio-essay-text {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    text-align: right;
+  }
+
+  .folio-quote-block {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+
+  .folio-latin-quote {
+    font-size: 0.9rem;
+  }
+
+  .mechanic-display-container {
+    min-height: 280px;
+    border-width: 2px;
+  }
+
+  /* Fixed Sticky Mobile Bottom Pagination Bar */
+  .codex-pagination-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    border-radius: 0;
+    padding: 10px 14px;
+    border-top: 2px solid var(--gold-primary);
+    background: rgba(22, 15, 9, 0.97);
+    box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+  }
+
+  .codex-pagination-bar .btn-brass-royal {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  .pagination-center-counter {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pagination-center-counter span {
+    font-size: 0.85rem;
+  }
+
+  .toc-drawer {
+    width: 85vw;
+    max-width: 320px;
+  }
+}
+

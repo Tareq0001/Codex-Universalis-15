@@ -16,6 +16,7 @@ class CodexEngine {
     this.initNavControls();
     this.initTableOfContents();
     this.initKeyboardNav();
+    this.initTouchSwipe();
     this.initLoupe();
   }
 
@@ -103,6 +104,35 @@ class CodexEngine {
         this.prevPage(); // RTL: Arrow Right goes back
       }
     });
+  }
+
+  initTouchSwipe() {
+    let startX = 0;
+    let startY = 0;
+    let endX = 0;
+    let endY = 0;
+
+    window.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      endY = e.changedTouches[0].clientY;
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+
+      // Check for horizontal swipe gesture with minimum distance
+      if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+        // RTL logic: Swipe Left (deltaX < 0) advances to next page
+        if (deltaX < -45) {
+          this.nextPage();
+        } else if (deltaX > 45) {
+          this.prevPage();
+        }
+      }
+    }, { passive: true });
   }
 
   initTableOfContents() {
