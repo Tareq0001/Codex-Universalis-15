@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codex Universalis | مخطوطة روائع الفكر والآلات الكبرى (15 صفحة)</title>
+  
+  <!-- Master Codex Stylesheet -->
+  <link rel="stylesheet" href="css/codex-master.css">
+</head>
+<body>
+
+  <div class="codex-palace-container">
+
+    <!-- 1. Top Imperial Header Bar -->
+    <header class="codex-top-bar">
+      <div class="codex-brand">
+        <span>📜</span>
+        <span>Codex Universalis • مخطوطة روائع الفكر والآلات الخمس عشرة</span>
+      </div>
+
+      <div class="codex-top-actions">
+        <button class="btn-brass-royal" id="btn-open-toc">
+          <span>📖</span>
+          <span>فهرس المخطوطة (15 صفحة)</span>
+        </button>
+        <button class="btn-brass-subtle" id="btn-sound-toggle">🔊 الصوت: مفعّل</button>
+        <button class="btn-brass-royal" id="btn-codex-lang">English & Français</button>
+      </div>
+    </header>
+
+    <!-- 2. Master Illuminated Folio Card (The Core Page Area) -->
+    <main class="illuminated-folio-spread">
+
+      <!-- Folio Header -->
+      <div class="folio-header">
+        <div>
+          <div class="folio-meta-badge" id="folio-category">مقدمة الأرشيف • Prolégomènes</div>
+          <h1 class="folio-title" id="folio-title">الغلاف الملكي وديباجة مخطوطة الكون (Codex Universalis)</h1>
+          <div class="folio-origin-date" id="folio-date-origin">من فجر التاريخ إلى عصر التنوير • خزائن باريس ولندن وقرطبة</div>
+        </div>
+
+        <div style="text-align: left;">
+          <div class="folio-roman-badge" id="folio-roman-num">Folio I</div>
+          <div style="font-family: var(--font-ruqaa); font-size: 1.1rem; color: var(--gold-antique);" id="folio-page-num">
+            الصفحة 1 من 15
+          </div>
+        </div>
+      </div>
+
+      <!-- Folio Content Grid -->
+      <div class="folio-content-grid">
+        
+        <!-- Left: Essay & Classical Quotations -->
+        <article class="folio-body-area" id="folio-body-area">
+          <div class="manuscript-loupe" id="manuscript-loupe"></div>
+
+          <!-- Quotations Box -->
+          <div class="folio-quote-block">
+            <div id="folio-arabic-quote">« الحكمة ضالة المؤمن، أنى وجدها فهو أحق بها. »</div>
+            <div class="folio-latin-quote" id="folio-latin-quote">« Sapientia aedificavit sibi domum. »</div>
+          </div>
+
+          <!-- Main Historical & Technical Essay -->
+          <div class="folio-essay-text" id="folio-essay">
+            <!-- Populated dynamically via JS -->
+          </div>
+
+          <div class="folio-tags-bar" id="folio-tags">
+            <!-- Tags rendered via JS -->
+          </div>
+        </article>
+
+        <!-- Right: Interactive Mechanical Simulator -->
+        <aside class="mechanic-display-container" id="mechanic-display-container">
+          <!-- Interactive Widget rendered via JS -->
+        </aside>
+
+      </div>
+
+    </main>
+
+    <!-- 3. Master Pagination Bar -->
+    <nav class="codex-pagination-bar">
+      <button class="btn-brass-royal" id="btn-prev-page" disabled>
+        ← الورقة السابقة
+      </button>
+
+      <div class="pagination-center-counter">
+        <span style="color: var(--gold-antique);">استخدم أسهم الكيبورد (← / →) للتنقل السريع</span>
+      </div>
+
+      <button class="btn-brass-royal" id="btn-next-page">
+        الورقة التالية →
+      </button>
+    </nav>
+
+    <!-- 4. Table of Contents Side Drawer (فهرس الـ 15 صفحة) -->
+    <div class="toc-drawer" id="toc-drawer">
+      <div class="toc-header">
+        <div class="toc-title">فهرس فصول المخطوطة (15 صفحة)</div>
+        <button class="btn-brass-subtle" id="btn-close-toc">✕ إغلاق</button>
+      </div>
+
+      <div class="toc-items-list" id="toc-items-list">
+        <!-- 15 Folio links dynamically generated -->
+      </div>
+    </div>
+
+    <!-- 5. Footer Attribution -->
+    <footer class="codex-footer">
+      <div style="font-family: var(--font-amiri); font-size: 1.2rem; color: var(--gold-bright); font-weight: bold;">
+        Codex Universalis • 15 Folios of Human Genius
+      </div>
+      <div style="margin-top: 6px;">
+        موسوعة أرشيفية ومتحفية صُممت كقطعة فنية خالدة تحتفي برواد العلم الإنساني
+      </div>
+      <div style="font-family: var(--font-ruqaa); font-size: 1.15rem; color: var(--gold-antique); margin-top: 8px;">
+        تأليف وإشراف: أ. طارق ابوعشي — Tareq Abuashi
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/codex-audio.js"></script>
+  <script src="js/codex-data.js"></script>
+  <script src="js/mechanics-simulators.js"></script>
+  <script src="js/codex-engine.js"></script>
+</body>
+</html>
